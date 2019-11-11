@@ -1,561 +1,581 @@
-<!doctype html>
-<html>
+	<!doctype html>
+	<html>
 
-<head>
-  <title>SemEval19: OffensEval</title>
-  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="js/menu.js"></script>
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
-  <style>
-    .menu-index {
-      color: rgb(255, 255, 255) !important;
-      opacity: 1 !important;
-      font-weight: 700 !important;
-    }
-  </style>
-</head>
+	<head>
+	  <title>SemEval19: OffensEval</title>
+	  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+	  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+	  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+	  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+	  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="js/menu.js"></script>
+	  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+	  <style>
+	    .menu-index {
+	      color: rgb(255, 255, 255) !important;
+	      opacity: 1 !important;
+	      font-weight: 700 !important;
+	    }
+	  </style>
+	</head>
 
-<body>
-  <div class="menu-container"></div>
-  <div class="content-container">
-    <div class="content">
-      <div class="content-table flex-column">
-        <!--Start Intro-->
-        <h1>SemEval19: OffensEval</h1>
-        <div class="flex-row">
-          <div class="flex-item flex-column">
-            <p class="text text-large">
-              Archit Kumar , Arnav Kapoor , Neeraj Barthwal , Shruti Chandra
-            </p>
-          </div>
-        </div>
-        <div class="flex-row">
-          <div class="flex-item flex-column">
-            <p class="text add-top-margin">
-              Offensive language is pervasive in social media. Individuals frequently take advantage of the perceived
-              anonymity of computer-mediated communication, using this to engage in behaviour that many of them would
-              not consider in real life. Online communities, social media platforms, and technology companies have been
-              investing heavily in ways to cope with offensive language to prevent abusive behaviour in social media.
-              One of the most effective strategies for tackling this problem is to use computational methods to identify
-              offense, aggression, and hate speech in user-generated content (e.g. posts, comments, microblogs, etc.).
-            </p>
-          </div>
-        </div>
-        <!--End Intro-->
-        <!--Start Text Only-->
-        <div class="flex-row">
-          <div class="flex-item flex-column">
-            <h2 class="add-top-margin">Problem Statement</h2>
-            <hr>
-            <p class="text">
-              Thus we aim to create a system for identification and classification of offensive tweets . It involves the
-              following three subtasks which are hierarchical in nature :
-              <ul>
-                <li>Sub-task A: Offensive language identification; [Offensive: OFF, Not Offensive: NOT]</li>
-                <li>Sub-task B: Automatic categorization of offense types; [Targeted: TIN, Untargeted: UNT]</li>
-                <li>Sub-task C: Offense target identification. [Individual: IND, Group: GRP, Other: OTH]</li>
-              </ul>
-            </p>
-          </div>
-        </div>
-        <div class="flex-row">
-          <div class="flex-item flex-column">
-            <h2 class="add-top-margin">Related Work</h2>
-            <hr>
-            <p class="text">
-              We refered to the following related works for our project
-              <ol>
-                <li>Seganti, A., Sobol, H., Orlova, I., Kim, H., Staniszewski, J., Krumholc, T., & Koziel, K. (2019).
-                  NLPR@SRPOL at SemEval-2019 Task 6 and Task 5: Linguistically enhanced deep learning offensive sentence
-                  classifier. </li>
-                <li>Zampieri, M., Malmasi, S., Nakov, P., Rosenthal, S., Farra, N., & Kumar, R. (2019). SemEval-2019
-                  Task 6: Identifying and Categorizing Offensive Language in Social Media (OffensEval).</li>
-                <li>Frisiani, N., Laignelet, A., & Güler, B. (2019). Combination of multiple Deep Learning architectures
-                  for Offensive Language Detection in Tweets. </li>
-                <li>Watanabe, H., Bouazizi, M., & Ohtsuki, T. (2018). Hate Speech on Twitter: A Pragmatic Approach to
-                  Collect Hateful and Offensive Expressions and Perform Hate Speech Detection. </li>
-                <li>Rangkuti, R., ., Z., & Lubis, A. (2019). Hate Speech: The Phenomenon of Offensive Language. </li>
-              </ol>
-            </p>
-          </div>
-        </div>
-        <div class="flex-row">
-          <div class="flex-item flex-column">
-            <h2 class="add-top-margin">Architecture</h2>
-            <hr>
-            <p class="text">
-              <ol>
-                <li><strong><b>Preprocessing Steps :-</b></strong> The first step was to clean and process the tweets so
-                  as to remove the noise and other unnecessary words, which is needed for any model and would help in
-                  providing better results. The steps used were as follows :-
-                  <ul>
-                    <li>Decontraction - (can’t -> can not , won’t -> will not )</li>
-                    <li>Stop Words Removal </li>
-                    <li>Case folding </li>
-                    <li>Tokenization and Lemmatization </li>
-                  </ul>
-                  <br>
+	<body>
+	  <div class="menu-container"></div>
+	  <div class="content-container">
+	    <div class="content">
+	      <div class="content-table flex-column">
+	        <!--Start Intro-->
+	        <h1>SemEval19: OffensEval</h1>
+	        <div class="flex-row">
+	          <div class="flex-item flex-column">
+	            <p class="text text-large">
+	              Archit Kumar , Arnav Kapoor , Neeraj Barthwal , Shruti Chandra
+	            </p>
+	          </div>
+	        </div>
+	        <div class="flex-row">
+	          <div class="flex-item flex-column">
+	            <p class="text add-top-margin">
+	              Offensive language is pervasive in social media. Individuals frequently take advantage of the perceived
+	              anonymity of computer-mediated communication, using this to engage in behaviour that many of them would
+	              not consider in real life. Online communities, social media platforms, and technology companies have been
+	              investing heavily in ways to cope with offensive language to prevent abusive behaviour in social media.
+	              One of the most effective strategies for tackling this problem is to use computational methods to identify
+	              offense, aggression, and hate speech in user-generated content (e.g. posts, comments, microblogs, etc.).
+	            </p>
+	          </div>
+	        </div>
+	        <!--End Intro-->
+	        <!--Start Text Only-->
+	        <div class="flex-row">
+	          <div class="flex-item flex-column">
+	            <h2 class="add-top-margin">Problem Statement</h2>
+	            <hr>
+	            <p class="text">
+	              Thus we aim to create a system for identification and classification of offensive tweets . It involves the
+	              following three subtasks which are hierarchical in nature :
+	              <ul>
+	                <li>Sub-task A: Offensive language identification; [Offensive: OFF, Not Offensive: NOT]</li>
+	                <li>Sub-task B: Automatic categorization of offense types; [Targeted: TIN, Untargeted: UNT]</li>
+	                <li>Sub-task C: Offense target identification. [Individual: IND, Group: GRP, Other: OTH]</li>
+	              </ul>
+	            </p>
+	          </div>
+	        </div>
+	        <div class="flex-row">
+	          <div class="flex-item flex-column">
+	            <h2 class="add-top-margin">Related Work</h2>
+	            <hr>
+	            <p class="text">
+	              We refered to the following related works for our project
+	              <ol>
+	                <li>Seganti, A., Sobol, H., Orlova, I., Kim, H., Staniszewski, J., Krumholc, T., & Koziel, K. (2019).
+	                  NLPR@SRPOL at SemEval-2019 Task 6 and Task 5: Linguistically enhanced deep learning offensive sentence
+	                  classifier. </li>
+	                <li>Zampieri, M., Malmasi, S., Nakov, P., Rosenthal, S., Farra, N., & Kumar, R. (2019). SemEval-2019
+	                  Task 6: Identifying and Categorizing Offensive Language in Social Media (OffensEval).</li>
+	                <li>Frisiani, N., Laignelet, A., & Güler, B. (2019). Combination of multiple Deep Learning architectures
+	                  for Offensive Language Detection in Tweets. </li>
+	                <li>Watanabe, H., Bouazizi, M., & Ohtsuki, T. (2018). Hate Speech on Twitter: A Pragmatic Approach to
+	                  Collect Hateful and Offensive Expressions and Perform Hate Speech Detection. </li>
+	                <li>Rangkuti, R., ., Z., & Lubis, A. (2019). Hate Speech: The Phenomenon of Offensive Language. </li>
+	              </ol>
+	            </p>
+	          </div>
+	        </div>
+	        <div class="flex-row">
+	          <div class="flex-item flex-column">
+	            <h2 class="add-top-margin">Architecture</h2>
+	            <hr>
+	            <p class="text">
+	              <ol>
+	                <li><strong><b>Preprocessing Steps :-</b></strong> The first step was to clean and process the tweets so
+	                  as to remove the noise and other unnecessary words, which is needed for any model and would help in
+	                  providing better results. The steps used were as follows :-
+	                  <ul>
+	                    <li>Decontraction - (can’t -> can not , won’t -> will not )</li>
+	                    <li>Stop Words Removal </li>
+	                    <li>Case folding </li>
+	                    <li>Tokenization and Lemmatization </li>
+	                  </ul>
+	                  <br>
 
-                <li><strong><b>Feature Engineering :-</b></strong> We added new columns i.e extracting features from the
-                  original data to improve the prediction of our models. The features added were as follows :- :-
-                  <ul>
-                    <li>Number of Hashtags</li>
-                    <li>Number of User Mentions </li>
-                    <li>Length of Tweet </li>
-                    <li>Number of URLs and Emojis </li>
-                  </ul>
-                  <i>Justification</i> - We analysed the results with and without the additional features (# of hashtags
-                  , # of mentions , # of URls).
-                  For the best model of Task A :-
-                  <ul>
-                    <li>F1-Score with additional features - 0.712 </li>
-                    <li>F1-Score without additional features - 0.699</li>
-                  </ul>
-                  Across all subtasks/features/models a general positive improvement in F1-Score was seen with
-                  additional features.
-                  <br>
-                  &nbsp
+	                <li><strong><b>Feature Engineering :-</b></strong> We added new columns i.e extracting features from the
+	                  original data to improve the prediction of our models. The features added were as follows :- :-
+	                  <ul>
+	                    <li>Number of Hashtags</li>
+	                    <li>Number of User Mentions </li>
+	                    <li>Length of Tweet </li>
+	                    <li>Number of URLs and Emojis </li>
+	                  </ul>
+	                  <i>Justification</i> - We analysed the results with and without the additional features (# of hashtags
+	                  , # of mentions , # of URls).
+	                  For the best model of Task A :-
+	                  <ul>
+	                    <li>F1-Score with additional features - 0.712 </li>
+	                    <li>F1-Score without additional features - 0.699</li>
+	                  </ul>
+	                  Across all subtasks/features/models a general positive improvement in F1-Score was seen with
+	                  additional features.
+	                  <br>
+	                  &nbsp
 
-                <li><strong><b>Representations Formed:-</b></strong> We need to form a representation of the tweets
-                  (that is the mapping from textual data to real valued vectors) before sending it to our model. The
-                  various representations used were as follows :-
-                  :-
-                  <ul>
-                    <li>Bag of Words </li>
-                    <li>TF-IDF </li>
-                    <li>Average Word2Vec (300 dimensions) </li>
-                  </ul>
-                  &nbsp
+	                <li><strong><b>Representations Formed:-</b></strong> We need to form a representation of the tweets
+	                  (that is the mapping from textual data to real valued vectors) before sending it to our model. The
+	                  various representations used were as follows :-
+	                  :-
+	                  <ul>
+	                    <li>Bag of Words </li>
+	                    <li>TF-IDF </li>
+	                    <li>Average Word2Vec (300 dimensions) </li>
+	                  </ul>
+	                  &nbsp
 
-                <li><strong><b>Recurrent Neural Networks (LSTM) :-</b></strong>
-                  The model is as follows :
-                  <ul>
-                    <li><strong><b>Making data ready for LSTMs</b></strong>
-                      GloVe vectors are used to generate a 300-dimentional embedding for our words in the vocabulary.
-                      The tweets are first tokenized and then an embedding matrix is obtained using the pretrained glove
-                      model.
-                      This matrix is then fed to the first layers of LSTM using an embedding layer and we do not learn
-                      word embeddings while training the network.
-                    <li><strong><b>Input to LSTMs</b></strong>
-                      The word embedding layer expects input sequences to be comprised of integers, usually called as
-                      word encodings, which represent a sentence, tweet in our case. We use Tokennizer's
-                      text_to_sequences() to achieve this. Thus, each tweet is fed as a sequence of numbers when
-                      training, the appropriate embeddings corresponding to the word is picked from the embedding matrix
-                      in the model layer.
-                      <br>&nbsp
-                      Tweets however, are unequal in length and the text_to_sequences() function generates array of
-                      number corresponding to each tweet which are unequal in size. Since, keras works in batches, we
-                      pad the tweets to make them equal in length. This is the final input - padded_tweets_train, in our
-                      case, on which the model is trained.
-                    <li><strong><b>Final Layer</b></strong>
-                      The network differs in architecture at the final layers for sub tasks A, B and C.
-                      For task A and B we use a Dense Layer with one output unit and sigmoid activation and binary
-                      crossentropy as loss function. This is because these tasks involve a binary classification -
-                      OFF/NOT_OFF and Targeted or Untargetted.
-                      <br>
-                      The final layer for sub task C is a Dense Layer with 3 units, this layer has softmax as activation
-                      and the loss function used is categorical cross entropy
-                  </ul>
+	                <li><strong><b>Recurrent Neural Networks (LSTM) :-</b></strong>
+	                  The model is as follows :
+	                  <ul>
+	                    <li><strong><b>Making data ready for LSTMs</b></strong>
+	                      GloVe vectors are used to generate a 300-dimentional embedding for our words in the vocabulary.
+	                      The tweets are first tokenized and then an embedding matrix is obtained using the pretrained glove
+	                      model.
+	                      This matrix is then fed to the first layers of LSTM using an embedding layer and we do not learn
+	                      word embeddings while training the network.
+	                    <li><strong><b>Input to LSTMs</b></strong>
+	                      The word embedding layer expects input sequences to be comprised of integers, usually called as
+	                      word encodings, which represent a sentence, tweet in our case. We use Tokennizer's
+	                      text_to_sequences() to achieve this. Thus, each tweet is fed as a sequence of numbers when
+	                      training, the appropriate embeddings corresponding to the word is picked from the embedding matrix
+	                      in the model layer.
+	                      <br>&nbsp
+	                      Tweets however, are unequal in length and the text_to_sequences() function generates array of
+	                      number corresponding to each tweet which are unequal in size. Since, keras works in batches, we
+	                      pad the tweets to make them equal in length. This is the final input - padded_tweets_train, in our
+	                      case, on which the model is trained.
+	                    <li><strong><b>Final Layer</b></strong>
+	                      The network differs in architecture at the final layers for sub tasks A, B and C.
+	                      For task A and B we use a Dense Layer with one output unit and sigmoid activation and binary
+	                      crossentropy as loss function. This is because these tasks involve a binary classification -
+	                      OFF/NOT_OFF and Targeted or Untargetted.
+	                      <br>
+	                      The final layer for sub task C is a Dense Layer with 3 units, this layer has softmax as activation
+	                      and the loss function used is categorical cross entropy
+	                  </ul>
 
-			      <img class="image center max-width-400" src="img/embed2.png">
+				      <img class="image center max-width-400" src="img/embed2.png">
 
-			    <li><strong><b>Convoluted Neural Networks (CNN's) :-</b></strong>
-                
+				    <li><strong><b>Convoluted Neural Networks (CNN's) :-</b></strong>
+	                <ul>
+		                <li> <strong> <b> Char-level CNN Idea </b> </strong> </li>
+		 				 
+						The next model we tried was character based CNN since texts in tweet corpus is a bit different than any other regular text corpus. In tweets, word shorthands e.g. ‘FYKI’ instead of ‘for your kind information’, repeating characters e.g. ‘yaaayyyyyy’ to express feelings, emoticons using symbols etc are used. These are not general English words and these usages may differ from person to person. As for example, ‘yaaaayyyyy’ and ‘yaayyy’ both are the same word. So character level model would work better than word level model.
 
-              </ol>
+						<li> <strong> <b> Input to char-CNN </b> </strong> </li>
+		 				
+						Char-CNN accept a sequence of encoded characters as input. The encoding is done by prescribing an alphabet of size m for the input language, and then quantize each character using 1-of-m encoding (or “one-hot” encoding). Then, the sequence of characters is transformed into a sequence of such m sized vectors with fixed length l0. Any character exceeding length l0 is ignored, and any characters that are not in the alphabet including blank characters are quantized as all-zero vectors. The character quantization order is backward so that the latest reading on characters is always placed near the beginning of the output, making it easy for fully connected layers to associate weights with the latest reading .
 
-            </p>
-            <!-- <p class="image-caption">Image Caption</p> -->
-
-          </div>
-        </div>
-        <div class="flex-row">
-          <div class="flex-item flex-column">
-            <h2 class="add-top-margin">Evaluation Metric</h2>
-            <hr>
-            <p class="text">
-              Since the problem statement is from the SemEval contest , the evaluation metric is very well defined , we
-              used the same parameters (F1-Score) as used in the contest.</br>
-
-              $$Precision = \frac{\#\ of\ True\ Positives}{\#\ of\ True\ Positives\ + \#\ of\ False\ Positives}$$
-
-              $$Recall = \frac{\#\ of\ True\ Positives}{\#\ of\ True\ Positives\ + \#\ of\ False\ Negatives}$$
+						<li> <strong> <b> Char-CNN Architecture </b> </strong> </li>
+						
+						The alphabet used in all of our models consists of 70 characters, including 26   english letters, 10 digits, 33 other characters and the new line character. The non-space characters are:
+		 				abcdefghijklmnopqrstuvwxyz0123456789 -,;.!?:’’’/\|_@#$%ˆ&*˜‘+-=<>()[]{}
 
 
-              F1-score is the harmonic mean of precision and recall taking both metrics into account in the following
-              equation:
-              $$F1 = \frac{2 * Precision * Recall}{Precision + Recall}$$
+						The embeddings are then passed to the CNN network whose architecture is described below. 
+						We also insert 2 dropout modules in between the 3 fully-connected layers to regularize. They have dropout probability of 0.5 .
+					</ul>
 
-            </p>
-          </div>
-        </div>
-        <div class="flex-row">
-            <div class="flex-item flex-column">
-              <h2 class="add-top-margin">Results</h2>
-              <hr>
-              <p class="text">
-                TO BE ADDED
-              </p>
-            </div>
-          </div>
+	              </ol>
+
+	            </p>
+	            <!-- <p class="image-caption">Image Caption</p> -->
+
+	          </div>
+	        </div>
+	        <div class="flex-row">
+	          <div class="flex-item flex-column">
+	            <h2 class="add-top-margin">Evaluation Metric</h2>
+	            <hr>
+	            <p class="text">
+	              Since the problem statement is from the SemEval contest , the evaluation metric is very well defined , we
+	              used the same parameters (F1-Score) as used in the contest.</br>
+
+	              $$Precision = \frac{\#\ of\ True\ Positives}{\#\ of\ True\ Positives\ + \#\ of\ False\ Positives}$$
+
+	              $$Recall = \frac{\#\ of\ True\ Positives}{\#\ of\ True\ Positives\ + \#\ of\ False\ Negatives}$$
 
 
-       <div class="flex-row">
-              <div class="flex-item flex-column">
-                <h2 class="add-top-margin" id="video">Youtube Video</h2>
-                <hr>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/-u4atguoUUg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div>
-          </div>
-        <!--             <p class="text">
-              Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
-              vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos
-              ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
-              excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia
-              animi, id est laborum et dolorum fuga.
-            </p>
-            <h3>Nested List</h3>
-            <p class="text">
-              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
-              augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
-              condimentum rhoncus, sem quam semper libero, <a target="_blank" href="javascript:void(0)">sit amet adipiscing sem neque</a> sed ipsum. Nam quam nunc, blandit
-              vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <ul>
-              <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-              <li>Aenean commodo ligula eget dolor.
-                <ul>
-                  <li>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</li>
-                  <li>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-                    <ul>
-                      <li>Li nov <a target="_blank" href="javascript:void(0)">lingua franca</a>.</li>
-                      <li>It va esser Occidental.</li>
-                      <li>Existent Europan lingues.</li>
-                    </ul>
-                  </li>
-                  <li>Nullam dictum felis eu pede mollis pretium.</li>
-                </ul>
-              </li>
-              <li>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </li>
-            </ul>
-            <p class="text">
-              Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del
-              coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues.
-              It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un
-              simplificat Angles, quam un skeptic Cambridge amico dit me.
-            </p>
-            <ol class="nested">
-              <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-              <li>Aenean commodo ligula eget dolor.
-                <ol class="nested">
-                  <li>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</li>
-                  <li>In enim justo, <a target="_blank" href="javascript:void(0)">rhoncus ut, imperdiet a</a>, venenatis vitae, justo.
-                    <ol class="nested">
-                      <li>Li nov lingua franca.</li>
-                      <li>It va esser Occidental.</li>
-                      <li>Existent Europan lingues.</li>
-                    </ol>
-                  </li>
-                  <li>Nullam dictum felis eu pede mollis pretium.</li>
-                </ol>
-              </li>
-              <li>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </li>
-            </ol>
-            <h3>List with Customized Reverse Numbering</h3>
-            <ol class="publication C-list">
-              <li>
-                <p class="text-small-margin">
-                  Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
-                  augue. Curabitur ullamcorper ultricies nisi.
-                </p>
-              </li>
-              <li>
-                <p class="text-small-margin">
-                  Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
-                  condimentum rhoncus, sem quam semper libero, <a target="_blank" href="javascript:void(0)">sit amet adipiscing sem neque sed ipsum</a>. Nam quam nunc, blandit
-                  vel, luctus pulvinar, hendrerit id, lorem.
-                </p>
-              </li>
-              <li>
-                 <p class="text-small-margin">
-                  Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del
-                  coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues.
-                </p>
-              </li>
-            </ol> -->
-        <!--End Text Only-->
-        <!--Start Text with Buttons-->
-        <!--End Text with Buttons-->
-        <!--Start Text with Images and Videos-->
-        <<!-- div class="flex-row">
-          <div class="flex-item flex-column">
-            <h2 class="add-top-margin">Video Demonstration</h2>
-            <hr>
-            <h3> Project Description and Demo Walkthrough </h3>
-            <p class="text">
-              <video preload controls autoplay loop muted playsinline class="image">
-              <source src="vid/mov_bbb.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-              </video>
-            </div>  
-          </div>
-        </div>
- -->
-        <!-- <div class="flex-row">
-          <div class="flex-item flex-item-stretch flex-column">
-            <img class="image" src="img/dummay-img.png">
-          </div>
-          <div class="flex-item flex-item-stretch flex-column">
-            <p class="text">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-              rem
-              aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-              explicabo.
-              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
-              dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia
-              dolor
-              sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et
-              dolore
-              magnam aliquam quaerat voluptatem. Sed ut perspiciatis unde.
-            </p>
-          </div>
-        </div>
-        <div class="flex-row">
-          <div class="flex-item flex-item-stretch flex-column">
-            <video preload controls autoplay loop muted playsinline class="image">
-              <source src="vid/mov_bbb.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div> -->
-          <!-- <div class="flex-item flex-item-stretch flex-column">
-            <p class="text">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-              rem
-              aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-              explicabo.
-              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
-              dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia
-              dolor
-              sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et
-              dolore
-              magnam.
-            </p>
-          </div>
-        </div>
-        <div class="flex-row">
-          <div class="flex-item flex-column">
-            <p class="text">
-              Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del
-              coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan
-              lingues.
-              It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un
-              simplificat Angles, quam un skeptic Cambridge amico dit me.
-            </p>
-          </div>
-        </div>
-        <div class="flex-row">
-          <div class="flex-item flex-item-stretch-2 flex-column">
-            <p class="text">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-              rem
-              aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-              explicabo.
-              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
-              dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia
-              dolor
-              sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.
-            </p>
-          </div>
-          <div class="flex-item flex-item-stretch flex-column">
-            <img class="image" src="img/dummay-img.png">
-          </div>
-        </div>
-        <div class="flex-row">
-          <div class="flex-item flex-item-stretch-2 flex-column">
-            <p class="text">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-              rem
-              aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-              explicabo.
-              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
-              dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia
-              dolor
-              sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.
-            </p>
-          </div>
-          <div class="flex-item flex-item-stretch flex-column">
-            <video preload controls autoplay loop muted playsinline class="image">
-              <source src="vid/mov_bbb.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-        <div class="flex-row">
-          <div class="flex-item flex-item-stretch flex-column">
-            <p class="text">
-              Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica,
-              sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li
-              pronunciation
-              e
-              li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar
-              payar
-              custosi traductores. At solmen va esser.
-            </p>
-          </div>
-        </div>
-        End Text with Images and Videos-->
-        <!-- <div class="flex-row">
-          <div class="flex-item flex-column">
-            <h2 class="add-top-margin">Text with Iframe</h2>
-            <hr>
-            <p class="text">
-              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi
-              vel
-              augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
-              condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,
-              blandit
-              vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <iframe class="iframe-in-body" src="http://yenchiah.me/geo-heatmap/smell.html"></iframe>
-            <p class="text">
-              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi
-              vel
-              augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
-              condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,
-              blandit
-              vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-          </div>
-        </div>
-        Start Text with Gallery-->
-        <!-- <div class="flex-row">
-          <div class="flex-item flex-column">
-            <h2 class="add-top-margin">Text with Gallery (Responsive Size)</h2>
-            <hr>
-            <p class="text">
-              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi
-              vel
-              augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
-              condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,
-              blandit
-              vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-          </div>
-        </div>
-        <div class="gallery">
-          <a href="javascript:void(0)" class="flex-column"><img src="img/dummay-img.png">
-            <div>Image Caption</div>
-          </a>
-          <a href="javascript:void(0)" class="flex-column"><img src="img/dummay-img.png">
-            <div>Image Caption</div>
-          </a>
-          <a href="javascript:void(0)" class="flex-column"><img src="img/dummay-img.png">
-            <div>Image Caption</div>
-          </a>
-          <a href="javascript:void(0)" class="flex-column"><img src="img/dummay-img.png">
-            <div>Image Caption</div>
-          </a>
-          <a href="javascript:void(0)" class="flex-column"><img src="img/dummay-img.png">
-            <div>Image Caption</div>
-          </a>
-          <a href="javascript:void(0)" class="flex-column"><img src="img/dummay-img.png">
-            <div>Image Caption</div>
-          </a>
-          <a href="javascript:void(0)" class="flex-column"><img src="img/dummay-img.png">
-            <div>Image Caption</div>
-          </a>
-          <a href="javascript:void(0)" class="flex-column"><img src="img/dummay-img.png">
-            <div>Image Caption</div>
-          </a>
-        </div>
-        <div class="flex-row">
-          <div class="flex-item flex-column">
-            <p class="text">
-              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi
-              vel
-              augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
-              condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,
-              blandit
-              vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-          </div>
-        </div>
-        End Text with Gallery-->
-        <!--Start List of Projects-->
-        <!--
-        <div class="flex-row">
-          <div class="flex-item flex-column full-width">
-            <h2 class="add-top-margin">List of Projects</h2>
-            <hr>
-          </div>
-        </div>
-        <div class="flex-row">
-          <div class="flex-item flex-item-stretch flex-column">
-            <img class="image max-width-400" src="img/dummay-img.png">
-          </div>
-          <div class="flex-item flex-item-stretch-4 flex-column">
-            <p class="text">
-              <a class="highlight-text" href="javascript:void(0)">Li Europan Lingues es Membres Del Sam
-                Familie</a><br>
-              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi
-              vel
-              augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
-              condimentum rhoncus, sem quam semper libero, sit amet.
-            </p>
-          </div>
-        </div>
-        <div class="flex-row">
-          <div class="flex-item flex-item-stretch flex-column">
-            <img class="image max-width-400" src="img/dummay-img.png">
-          </div>
-          <div class="flex-item flex-item-stretch-4 flex-column">
-            <p class="text">
-              <a class="highlight-text" href="javascript:void(0)">Li Europan Lingues es Membres Del Sam
-                Familie</a><br>
-              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi
-              vel
-              augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
-              condimentum rhoncus, sem quam semper libero, sit amet.
-            </p>
-          </div>
-        </div>
-        <div class="flex-row">
-          <div class="flex-item flex-item-stretch flex-column">
-            <img class="image max-width-400" src="img/dummay-img.png">
-          </div>
-          <div class="flex-item flex-item-stretch-4 flex-column">
-            <p class="text">
-              <a class="highlight-text" href="javascript:void(0)">Li Europan Lingues es Membres Del Sam
-                Familie</a><br>
-              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi
-              vel
-              augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
-              condimentum rhoncus, sem quam semper libero, sit amet.
-            </p>
-          </div>
-        </div>
-        End List of Projects-->
-        <!--  Start Credits
-        <div class="flex-row">
-          <div class="flex-item flex-item-stretch flex-column">
-            <p class="text text-small text-italic">
-              Credits: <span class="highlight-text">Organization One</span>: Author One and Author Two / <span
-                class="highlight-text">Organization Two</span>: Author Three and Author Four
-            </p>
-          </div>
-        </div> -->
-          -->
-        <!--End Credits-->
-      </div>
-    </div>
-  </div>
-</body>
+	              F1-score is the harmonic mean of precision and recall taking both metrics into account in the following
+	              equation:
+	              $$F1 = \frac{2 * Precision * Recall}{Precision + Recall}$$
 
-</html>
+	            </p>
+	          </div>
+	        </div>
+	        <div class="flex-row">
+	            <div class="flex-item flex-column">
+	              <h2 class="add-top-margin">Results</h2>
+	              <hr>
+	              <p class="text">
+	                <img class="image center max-width-400" src="img/task_A.jpeg">
+				    <img class="image center max-width-400" src="img/task_B.jpeg">
+			      	<img class="image center max-width-400" src="img/task_C.jpeg">
+	              </p>
+	            </div>
+	          </div>
+
+
+	       <div class="flex-row">
+	              <div class="flex-item flex-column">
+	                <h2 class="add-top-margin" id="video">Youtube Video</h2>
+	                <hr>
+	                <iframe width="560" height="315" src="https://www.youtube.com/embed/-u4atguoUUg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+	              </div>
+	          </div>
+	        <!--             <p class="text">
+	              Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
+	              vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos
+	              ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+	              excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia
+	              animi, id est laborum et dolorum fuga.
+	            </p>
+	            <h3>Nested List</h3>
+	            <p class="text">
+	              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
+	              augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
+	              condimentum rhoncus, sem quam semper libero, <a target="_blank" href="javascript:void(0)">sit amet adipiscing sem neque</a> sed ipsum. Nam quam nunc, blandit
+	              vel, luctus pulvinar, hendrerit id, lorem.
+	            </p>
+	            <ul>
+	              <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+	              <li>Aenean commodo ligula eget dolor.
+	                <ul>
+	                  <li>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</li>
+	                  <li>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+	                    <ul>
+	                      <li>Li nov <a target="_blank" href="javascript:void(0)">lingua franca</a>.</li>
+	                      <li>It va esser Occidental.</li>
+	                      <li>Existent Europan lingues.</li>
+	                    </ul>
+	                  </li>
+	                  <li>Nullam dictum felis eu pede mollis pretium.</li>
+	                </ul>
+	              </li>
+	              <li>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </li>
+	            </ul>
+	            <p class="text">
+	              Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del
+	              coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues.
+	              It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un
+	              simplificat Angles, quam un skeptic Cambridge amico dit me.
+	            </p>
+	            <ol class="nested">
+	              <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+	              <li>Aenean commodo ligula eget dolor.
+	                <ol class="nested">
+	                  <li>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</li>
+	                  <li>In enim justo, <a target="_blank" href="javascript:void(0)">rhoncus ut, imperdiet a</a>, venenatis vitae, justo.
+	                    <ol class="nested">
+	                      <li>Li nov lingua franca.</li>
+	                      <li>It va esser Occidental.</li>
+	                      <li>Existent Europan lingues.</li>
+	                    </ol>
+	                  </li>
+	                  <li>Nullam dictum felis eu pede mollis pretium.</li>
+	                </ol>
+	              </li>
+	              <li>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </li>
+	            </ol>
+	            <h3>List with Customized Reverse Numbering</h3>
+	            <ol class="publication C-list">
+	              <li>
+	                <p class="text-small-margin">
+	                  Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
+	                  augue. Curabitur ullamcorper ultricies nisi.
+	                </p>
+	              </li>
+	              <li>
+	                <p class="text-small-margin">
+	                  Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
+	                  condimentum rhoncus, sem quam semper libero, <a target="_blank" href="javascript:void(0)">sit amet adipiscing sem neque sed ipsum</a>. Nam quam nunc, blandit
+	                  vel, luctus pulvinar, hendrerit id, lorem.
+	                </p>
+	              </li>
+	              <li>
+	                 <p class="text-small-margin">
+	                  Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del
+	                  coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues.
+	                </p>
+	              </li>
+	            </ol> -->
+	        <!--End Text Only-->
+	        <!--Start Text with Buttons-->
+	        <!--End Text with Buttons-->
+	        <!--Start Text with Images and Videos-->
+	        <<!-- div class="flex-row">
+	          <div class="flex-item flex-column">
+	            <h2 class="add-top-margin">Video Demonstration</h2>
+	            <hr>
+	            <h3> Project Description and Demo Walkthrough </h3>
+	            <p class="text">
+	              <video preload controls autoplay loop muted playsinline class="image">
+	              <source src="vid/mov_bbb.mp4" type="video/mp4">
+	                    Your browser does not support the video tag.
+	              </video>
+	            </div>  
+	          </div>
+	        </div>
+	 -->
+	        <!-- <div class="flex-row">
+	          <div class="flex-item flex-item-stretch flex-column">
+	            <img class="image" src="img/dummay-img.png">
+	          </div>
+	          <div class="flex-item flex-item-stretch flex-column">
+	            <p class="text">
+	              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+	              rem
+	              aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+	              explicabo.
+	              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
+	              dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia
+	              dolor
+	              sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et
+	              dolore
+	              magnam aliquam quaerat voluptatem. Sed ut perspiciatis unde.
+	            </p>
+	          </div>
+	        </div>
+	        <div class="flex-row">
+	          <div class="flex-item flex-item-stretch flex-column">
+	            <video preload controls autoplay loop muted playsinline class="image">
+	              <source src="vid/mov_bbb.mp4" type="video/mp4">
+	              Your browser does not support the video tag.
+	            </video>
+	          </div> -->
+	          <!-- <div class="flex-item flex-item-stretch flex-column">
+	            <p class="text">
+	              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+	              rem
+	              aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+	              explicabo.
+	              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
+	              dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia
+	              dolor
+	              sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et
+	              dolore
+	              magnam.
+	            </p>
+	          </div>
+	        </div>
+	        <div class="flex-row">
+	          <div class="flex-item flex-column">
+	            <p class="text">
+	              Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del
+	              coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan
+	              lingues.
+	              It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un
+	              simplificat Angles, quam un skeptic Cambridge amico dit me.
+	            </p>
+	          </div>
+	        </div>
+	        <div class="flex-row">
+	          <div class="flex-item flex-item-stretch-2 flex-column">
+	            <p class="text">
+	              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+	              rem
+	              aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+	              explicabo.
+	              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
+	              dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia
+	              dolor
+	              sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.
+	            </p>
+	          </div>
+	          <div class="flex-item flex-item-stretch flex-column">
+	            <img class="image" src="img/dummay-img.png">
+	          </div>
+	        </div>
+	        <div class="flex-row">
+	          <div class="flex-item flex-item-stretch-2 flex-column">
+	            <p class="text">
+	              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+	              rem
+	              aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+	              explicabo.
+	              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
+	              dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia
+	              dolor
+	              sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.
+	            </p>
+	          </div>
+	          <div class="flex-item flex-item-stretch flex-column">
+	            <video preload controls autoplay loop muted playsinline class="image">
+	              <source src="vid/mov_bbb.mp4" type="video/mp4">
+	              Your browser does not support the video tag.
+	            </video>
+	          </div>
+	        </div>
+	        <div class="flex-row">
+	          <div class="flex-item flex-item-stretch flex-column">
+	            <p class="text">
+	              Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica,
+	              sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li
+	              pronunciation
+	              e
+	              li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar
+	              payar
+	              custosi traductores. At solmen va esser.
+	            </p>
+	          </div>
+	        </div>
+	        End Text with Images and Videos-->
+	        <!-- <div class="flex-row">
+	          <div class="flex-item flex-column">
+	            <h2 class="add-top-margin">Text with Iframe</h2>
+	            <hr>
+	            <p class="text">
+	              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi
+	              vel
+	              augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
+	              condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,
+	              blandit
+	              vel, luctus pulvinar, hendrerit id, lorem.
+	            </p>
+	            <iframe class="iframe-in-body" src="http://yenchiah.me/geo-heatmap/smell.html"></iframe>
+	            <p class="text">
+	              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi
+	              vel
+	              augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
+	              condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,
+	              blandit
+	              vel, luctus pulvinar, hendrerit id, lorem.
+	            </p>
+	          </div>
+	        </div>
+	        Start Text with Gallery-->
+	        <!-- <div class="flex-row">
+	          <div class="flex-item flex-column">
+	            <h2 class="add-top-margin">Text with Gallery (Responsive Size)</h2>
+	            <hr>
+	            <p class="text">
+	              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi
+	              vel
+	              augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
+	              condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,
+	              blandit
+	              vel, luctus pulvinar, hendrerit id, lorem.
+	            </p>
+	          </div>
+	        </div>
+	        <div class="gallery">
+	          <a href="javascript:void(0)" class="flex-column"><img src="img/dummay-img.png">
+	            <div>Image Caption</div>
+	          </a>
+	          <a href="javascript:void(0)" class="flex-column"><img src="img/dummay-img.png">
+	            <div>Image Caption</div>
+	          </a>
+	          <a href="javascript:void(0)" class="flex-column"><img src="img/dummay-img.png">
+	            <div>Image Caption</div>
+	          </a>
+	          <a href="javascript:void(0)" class="flex-column"><img src="img/dummay-img.png">
+	            <div>Image Caption</div>
+	          </a>
+	          <a href="javascript:void(0)" class="flex-column"><img src="img/dummay-img.png">
+	            <div>Image Caption</div>
+	          </a>
+	          <a href="javascript:void(0)" class="flex-column"><img src="img/dummay-img.png">
+	            <div>Image Caption</div>
+	          </a>
+	          <a href="javascript:void(0)" class="flex-column"><img src="img/dummay-img.png">
+	            <div>Image Caption</div>
+	          </a>
+	          <a href="javascript:void(0)" class="flex-column"><img src="img/dummay-img.png">
+	            <div>Image Caption</div>
+	          </a>
+	        </div>
+	        <div class="flex-row">
+	          <div class="flex-item flex-column">
+	            <p class="text">
+	              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi
+	              vel
+	              augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
+	              condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,
+	              blandit
+	              vel, luctus pulvinar, hendrerit id, lorem.
+	            </p>
+	          </div>
+	        </div>
+	        End Text with Gallery-->
+	        <!--Start List of Projects-->
+	        <!--
+	        <div class="flex-row">
+	          <div class="flex-item flex-column full-width">
+	            <h2 class="add-top-margin">List of Projects</h2>
+	            <hr>
+	          </div>
+	        </div>
+	        <div class="flex-row">
+	          <div class="flex-item flex-item-stretch flex-column">
+	            <img class="image max-width-400" src="img/dummay-img.png">
+	          </div>
+	          <div class="flex-item flex-item-stretch-4 flex-column">
+	            <p class="text">
+	              <a class="highlight-text" href="javascript:void(0)">Li Europan Lingues es Membres Del Sam
+	                Familie</a><br>
+	              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi
+	              vel
+	              augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
+	              condimentum rhoncus, sem quam semper libero, sit amet.
+	            </p>
+	          </div>
+	        </div>
+	        <div class="flex-row">
+	          <div class="flex-item flex-item-stretch flex-column">
+	            <img class="image max-width-400" src="img/dummay-img.png">
+	          </div>
+	          <div class="flex-item flex-item-stretch-4 flex-column">
+	            <p class="text">
+	              <a class="highlight-text" href="javascript:void(0)">Li Europan Lingues es Membres Del Sam
+	                Familie</a><br>
+	              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi
+	              vel
+	              augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
+	              condimentum rhoncus, sem quam semper libero, sit amet.
+	            </p>
+	          </div>
+	        </div>
+	        <div class="flex-row">
+	          <div class="flex-item flex-item-stretch flex-column">
+	            <img class="image max-width-400" src="img/dummay-img.png">
+	          </div>
+	          <div class="flex-item flex-item-stretch-4 flex-column">
+	            <p class="text">
+	              <a class="highlight-text" href="javascript:void(0)">Li Europan Lingues es Membres Del Sam
+	                Familie</a><br>
+	              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi
+	              vel
+	              augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
+	              condimentum rhoncus, sem quam semper libero, sit amet.
+	            </p>
+	          </div>
+	        </div>
+	        End List of Projects-->
+	        <!--  Start Credits
+	        <div class="flex-row">
+	          <div class="flex-item flex-item-stretch flex-column">
+	            <p class="text text-small text-italic">
+	              Credits: <span class="highlight-text">Organization One</span>: Author One and Author Two / <span
+	                class="highlight-text">Organization Two</span>: Author Three and Author Four
+	            </p>
+	          </div>
+	        </div> -->
+	          -->
+	        <!--End Credits-->
+	      </div>
+	    </div>
+	  </div>
+	</body>
+
+	</html>
